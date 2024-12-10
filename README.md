@@ -42,8 +42,26 @@
 
 ### Installation
 
-1. Klonen Sie das Repository:
+1. Klone das Repository:
+
    ```sh
    git clone https://github.com/your-username/pokeapi.git
    cd pokeapi
    ```
+
+2. Abhängigkeiten installieren
+
+   ```sh
+   npm install
+   ```
+
+3. Anwendung starten
+
+   ```sh
+   npm start
+   ```
+
+### Verwendung
+
+- Der Hauptbildschirm zeigt eine Liste von Pokémon an.
+- Klicke auf ein Pokémon, um dessen Details anzuzeigen.
