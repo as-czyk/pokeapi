@@ -28,6 +28,8 @@ export const PokeApi = {
           weight: pokemonJson.weight,
           imageUrl:
             pokemonJson.sprites?.other["official-artwork"].front_default,
+          types: pokemonJson?.types,
+          cries: pokemonJson?.cries?.legacy,
         };
 
         return pokemon;

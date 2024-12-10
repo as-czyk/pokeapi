@@ -15,4 +15,14 @@ export interface PokemonType {
   imageUrl: string;
   weight: number;
   height: number;
+  types: Type[];
+  cries: string;
+}
+
+interface Type {
+  slot: number;
+  type: {
+    name: string;
+    url: string;
+  };
 }

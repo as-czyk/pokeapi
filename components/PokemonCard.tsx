@@ -1,7 +1,8 @@
 import { PokeApi } from "@/server/PokeApi";
 import { PokemonType } from "@/types";
 import { useEffect, useState } from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { router } from "expo-router";
 
 interface PokemonCardProps {
   name: string;
@@ -26,12 +27,23 @@ export const PokemonCard = (props: PokemonCardProps) => {
   if (!pokemon) return null;
 
   return (
-    <View style={styles.pokemonCard}>
-      <Image source={{ uri: pokemon.imageUrl }} style={styles.image} />
-      <Text style={styles.name}>{pokemon.name}</Text>
-      <Text style={styles.details}>Height: {pokemon.height / 10} m</Text>
-      <Text style={styles.details}>Weight: {pokemon.weight / 10} kg</Text>
-    </View>
+    <TouchableOpacity
+      onPress={() =>
+        router.push({
+          pathname: "/detailview",
+          params: {
+            data: JSON.stringify(pokemon),
+          },
+        })
+      }
+    >
+      <View style={styles.pokemonCard}>
+        <Image source={{ uri: pokemon.imageUrl }} style={styles.image} />
+        <Text style={styles.name}>{pokemon.name}</Text>
+        <Text style={styles.details}>Height: {pokemon.height / 10} m</Text>
+        <Text style={styles.details}>Weight: {pokemon.weight / 10} kg</Text>
+      </View>
+    </TouchableOpacity>
   );
 };
 
