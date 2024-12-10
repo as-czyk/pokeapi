@@ -19,7 +19,7 @@ export interface PokemonType {
   cries: string;
 }
 
-interface Type {
+export interface Type {
   slot: number;
   type: {
     name: string;
