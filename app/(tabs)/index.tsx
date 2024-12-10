@@ -1,31 +1,59 @@
-import { StyleSheet } from 'react-native';
-
-import EditScreenInfo from '@/components/EditScreenInfo';
-import { Text, View } from '@/components/Themed';
+import Loader from "@/components/Loader";
+import { PokemonCard } from "@/components/PokemonCard";
+import { ServerApi } from "@/server/ServerApi";
+import { Pokemon, PokemonListResponse } from "@/types";
+import { useEffect, useState } from "react";
+import { FlatList, SafeAreaView, StyleSheet, View } from "react-native";
 
 export default function TabOneScreen() {
+  const [pokemonList, setPokemonList] = useState<Pokemon[]>([]);
+
+  useEffect(() => {
+    const get = async () => {
+      try {
+        const response =
+          (await ServerApi.getPokemonList()) as unknown as PokemonListResponse;
+        setPokemonList(response?.results);
+      } catch (e) {
+        console.error(e);
+      }
+    };
+
+    get();
+  }, []);
+
+  if (pokemonList.length === 0)
+    return (
+      <View style={styles.container}>
+        <Loader />
+      </View>
+    );
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/index.tsx" />
-    </View>
+    <SafeAreaView style={{ flex: 1 }}>
+      <FlatList
+        data={pokemonList}
+        renderItem={({ item }) => <PokemonCard name={item.name} />}
+        keyExtractor={(item) => item.name}
+        numColumns={2}
+        contentContainerStyle={styles.list}
+      />
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
+  itemContainer: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
   },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
+  list: {
+    alignItems: "center",
   },
 });
