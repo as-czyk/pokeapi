@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, ScrollView, StyleSheet } from "react-native";
 
-const ChallengeDescription = () => {
+const ChallengeOneDescription = () => {
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.header}>
@@ -17,27 +17,29 @@ const ChallengeDescription = () => {
         anzeigt.
       </Text>
 
-      <Text style={styles.subHeader}>Technologische Anforderungen:</Text>
-      <Text style={styles.text}>
-        TypeScript, Expo, React Native (insbesondere `SectionList`,
-        `TouchableOpacity`), Fetch API für Netzwerkanfragen.
-      </Text>
-
       <Text style={styles.subHeader}>Aufgabenstellung:</Text>
       <Text style={styles.text}>
         1. **API Daten Laden** - Verwende die Fetch API, um die Daten von der
-        PokeAPI zu laden und speichere diese im State der App.\n 2.
-        **Darstellung der Daten** - Verwende eine `SectionList`, um die
+        PokeAPI zu laden und speichere diese im State der App.
+      </Text>
+      <Text style={styles.text}>
+        2. **Darstellung der Daten** - Verwende eine `SectionList`, um die
         Pokémon-Generationen anzuzeigen. Jede Generation sollte als ein
-        anklickbares Element in der Liste erscheinen.\n 3. **Navigation und
-        Detailansicht** - Implementiere eine einfache Navigation, die den
-        Benutzer zum Detailbildschirm der ausgewählten Generation führt.
+        anklickbares Element in der Liste erscheinen.\n
+      </Text>
+      <Text style={styles.text}>
+        3. **Navigation und Detailansicht** - Implementiere eine einfache
+        Navigation, die den Benutzer zum Detailbildschirm der ausgewählten
+        Generation führt.
       </Text>
 
-      <Text style={styles.subHeader}>Beispielcode:</Text>
-      <Text style={styles.code}>
-        {`import React, { useState, useEffect } from 'react';\nimport { View, Text, SectionList, TouchableOpacity, StyleSheet } from 'react-native';\nimport { useNavigation } from 'expo-router';\n\ninterface Generation {\n  name: string;\n  url: string;\n}\n\nexport default function GenerationList() {\n  const [generations, setGenerations] = useState<Generation[]>([]);\n  const navigation = useNavigation();\n\n  useEffect(() => {\n    const fetchGenerations = async () => {\n      const response = await fetch('https://pokeapi.co/api/v2/generation');\n      const data = await response.json();\n      setGenerations(data.results);\n    };\n\n    fetchGenerations();\n  }, []);\n\n  return (<View style={styles.container}>...</View>);\n}`}
-      </Text>
+      <Text style={styles.subHeader}>Benötigte Elemente:</Text>
+      <Text style={styles.code}>{`
+        Netzwerkanfrage: fetch()-API \n
+        React Hooks: useState(), useEffect() \n
+        Expo Navigation: Stack.Navigator, Stack.Screen, Expo App Router \n
+        React Native Komponenten: u.a SectionList, TouchableOpacity \n
+      `}</Text>
     </ScrollView>
   );
 };
@@ -73,4 +75,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ChallengeDescription;
+export default ChallengeOneDescription;

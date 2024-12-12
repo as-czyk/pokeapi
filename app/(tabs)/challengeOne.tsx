@@ -1,10 +1,9 @@
-import ChallengeDescription from "@/components/ChallengeOneDescription";
 import { StyleSheet, Text, View } from "react-native";
 
 export default function ChallengeOneScreen() {
   return (
     <View style={styles.container}>
-      <ChallengeDescription />
+      <Text>Happy Coding ... 🤖</Text>
     </View>
   );
 }
