@@ -3,7 +3,7 @@ import { StyleSheet, View, Text } from "react-native";
 export default function ChallengeThreeScreen() {
   return (
     <View style={styles.container}>
-      <Text>Challenge Three</Text>
+      <Text>Happpy Coding ... 🤖</Text>
     </View>
   );
 }

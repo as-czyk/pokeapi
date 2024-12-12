@@ -61,6 +61,26 @@ export default function TabLayout() {
         options={{
           title: "Challenge Two",
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          headerRight: () => (
+            <Link
+              href={{
+                pathname: "/modal",
+                params: { component: "ChallengeTwoDescription" },
+              }}
+              asChild
+            >
+              <Pressable>
+                {({ pressed }) => (
+                  <FontAwesome
+                    name="info-circle"
+                    size={25}
+                    color={Colors[colorScheme ?? "light"].text}
+                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
+                  />
+                )}
+              </Pressable>
+            </Link>
+          ),
         }}
       />
       <Tabs.Screen
@@ -68,6 +88,26 @@ export default function TabLayout() {
         options={{
           title: "Challenge Three",
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          headerRight: () => (
+            <Link
+              href={{
+                pathname: "/modal",
+                params: { component: "ChallengeThreeDescription" },
+              }}
+              asChild
+            >
+              <Pressable>
+                {({ pressed }) => (
+                  <FontAwesome
+                    name="info-circle"
+                    size={25}
+                    color={Colors[colorScheme ?? "light"].text}
+                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
+                  />
+                )}
+              </Pressable>
+            </Link>
+          ),
         }}
       />
     </Tabs>
