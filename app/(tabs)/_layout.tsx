@@ -5,7 +5,6 @@ import React from "react";
 import Colors from "@/constants/Colors";
 import { useColorScheme } from "@/hooks/useColorScheme";
 
-// You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
 function TabBarIcon(props: {
   name: React.ComponentProps<typeof FontAwesome>["name"];
   color: string;
@@ -30,9 +29,23 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="challengeOne"
         options={{
-          title: "Tab Two",
+          title: "Challenge One",
+          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="challengeTwo"
+        options={{
+          title: "Challenge Two",
+          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="challengeThree"
+        options={{
+          title: "Challenge Three",
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />
