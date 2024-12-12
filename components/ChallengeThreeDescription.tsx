@@ -12,10 +12,9 @@ const ChallengeThreeDescription = () => {
       <Text style={styles.text}>
         Erweitere eine bestehende Anwendung, die Pokémon-Daten aus der PokeAPI
         abruft, um zusätzliche Informationen anzuzeigen und die Interaktivität
-        der App zu erhöhen. Optional: Ergänze die Anwendung ebenfalls um eine
-        Pokemon Team funktion. Der Nutze soll einzelne Pokemon zu einem Team
-        hinzufügen können und sich sein Team in einem eigenen Menu anzeigen
-        lassen können.
+        der App zu erhöhen. Optional: Erweitere die Liste der angezeigten
+        Pokemon um 20 weitere Pokemon sobald die Liste zu "Ende" gescrollt
+        wurde.
       </Text>
 
       <Text style={styles.subHeader}>Aufgaben :</Text>
@@ -27,10 +26,12 @@ const ChallengeThreeDescription = () => {
         Infos abzurufen.
       </Text>
       <Text style={styles.text}>
-        2. Füge eine Favoritenfunktion hinzu: Ermögliche es Benutzern, ihre
-        Lieblingspokémon zu markieren und eine separate Liste ihrer Favoriten zu
-        führen. Diese Funktionalität kann durch Zustandsmanagement in React
-        (z.B. mit useState) realisiert werden.
+        2. Füge weitere Pokemon in die Pokemon Liste hinzu. Jedes mal wenn die
+        Liste das Ende erreicht, sollen die nächsten 20 Pokemon geladen werden.
+        Verwende dazu die onEndReached und die ListFooterComponent Prop der
+        FlatList Komponente. Erstelle ein weitere Funktion, die die nächsten 20
+        Pokemon abruft. Erweitere die Methode getPokemonList in der PokeApi um
+        die beiden query parameter offset und limit zu akzeptieren.
       </Text>
     </ScrollView>
   );
