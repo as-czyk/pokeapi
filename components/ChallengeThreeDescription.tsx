@@ -5,33 +5,32 @@ const ChallengeThreeDescription = () => {
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.header}>
-        Coding Challenge: Refactor die Profilseite
+        Coding Challenge: Erweiterung der Pokémon-Details
       </Text>
 
       <Text style={styles.subHeader}>Zielsetzung:</Text>
       <Text style={styles.text}>
-        Teile den überladenen JSX-Code in kleinere, wiederverwendbare
-        Komponenten auf. Berücksichtige dabei die unterschiedlichen UI-Elemente
-        wie Profilbild, Statistiken und die Liste der Lieblingspokemon. Erstelle
-        spezifische Komponenten für das Profilbild, die Statistiken, und die
-        Anzeige der Lieblingsbücher. Jede dieser Komponenten sollte ihre eigenen
-        Props für die erforderlichen Daten erhalten.
+        Erweitere eine bestehende Anwendung, die Pokémon-Daten aus der PokeAPI
+        abruft, um zusätzliche Informationen anzuzeigen und die Interaktivität
+        der App zu erhöhen. Optional: Ergänze die Anwendung ebenfalls um eine
+        Pokemon Team funktion. Der Nutze soll einzelne Pokemon zu einem Team
+        hinzufügen können und sich sein Team in einem eigenen Menu anzeigen
+        lassen können.
       </Text>
 
-      <Text style={styles.subHeader}>Hinweis:</Text>
+      <Text style={styles.subHeader}>Aufgaben :</Text>
       <Text style={styles.text}>
-        1. Achte darauf, dass jede neue Komponente klar definierte Props hat und
-        flexibel wiederverwendbar ist. Implementiere außerdem TypeScript
-        Interfaces.
+        1. Erweitere die Pokémon Detailansicht: Zeige zusätzliche Informationen
+        in der Detailansicht jedes Pokémon an, wie z.B. Stats (Attack, Defense,
+        etc.), Typen und Fähigkeiten. Nutze die vorhandene Implementierung der
+        PokeApi und erweitere das Object (sowie die Typen) um die benötigten
+        Infos abzurufen.
       </Text>
       <Text style={styles.text}>
-        2. Überprüfe die Funktionalität und stelle sicher, dass der
-        refaktorierte Bildschirm funktional identisch zum ursprünglichen
-        Bildschirm ist.
-      </Text>
-      <Text style={styles.text}>
-        3. Kommentiere den Code, um deine Designentscheidungen und die
-        Aufteilung der Komponenten zu erklären.
+        2. Füge eine Favoritenfunktion hinzu: Ermögliche es Benutzern, ihre
+        Lieblingspokémon zu markieren und eine separate Liste ihrer Favoriten zu
+        führen. Diese Funktionalität kann durch Zustandsmanagement in React
+        (z.B. mit useState) realisiert werden.
       </Text>
     </ScrollView>
   );
