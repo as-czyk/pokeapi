@@ -1,7 +1,14 @@
-import { Type } from "@/types";
+import { Location, Type } from "@/types";
 import { useLocalSearchParams } from "expo-router";
 import React from "react";
-import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
+import {
+  Image,
+  ScrollView,
+  SectionList,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 
 const TypeTag = ({ type }: { type: Type }) => (
   <View
@@ -27,6 +34,15 @@ const PokemonDetailsView = () => {
         </View>
         <Text style={styles.info}>Height: {pokemon.height / 10} m</Text>
         <Text style={styles.info}>Weight: {pokemon.weight / 10} kg</Text>
+        <ScrollView horizontal>
+          {pokemon.locations.map((item: Location) => {
+            return (
+              <View key={item.url} style={styles.locationContainer}>
+                <Text>{item.name}</Text>
+              </View>
+            );
+          })}
+        </ScrollView>
       </View>
     </ScrollView>
   );
@@ -103,6 +119,16 @@ const styles = StyleSheet.create({
   cryButtonText: {
     color: "white",
     fontWeight: "bold",
+  },
+  locationContainer: {
+    backgroundColor: "#3498db",
+    padding: 10,
+    borderRadius: 5,
+    marginTop: 10,
+    alignItems: "center",
+    marginRight: 10,
+    height: 100,
+    width: 100,
   },
 });
 

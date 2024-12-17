@@ -17,6 +17,12 @@ export interface PokemonType {
   height: number;
   types: Type[];
   cries: string;
+  locations: Location[];
+}
+
+export interface Location {
+  name: string;
+  url: string;
 }
 
 export interface Type {

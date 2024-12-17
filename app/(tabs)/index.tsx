@@ -3,10 +3,11 @@ import { PokemonCard } from "@/components/PokemonCard";
 import { ServerApi } from "@/server/ServerApi";
 import { Pokemon, PokemonListResponse } from "@/types";
 import { useEffect, useState } from "react";
-import { FlatList, SafeAreaView, StyleSheet, View } from "react-native";
+import { FlatList, SafeAreaView, StyleSheet, View, Text } from "react-native";
 
 export default function TabOneScreen() {
   const [pokemonList, setPokemonList] = useState<Pokemon[]>([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const get = async () => {
@@ -21,6 +22,21 @@ export default function TabOneScreen() {
 
     get();
   }, []);
+
+  const addPokemon = async () => {
+    if (pokemonList.length >= 151) return;
+    setLoading(true);
+    try {
+      const response = (await ServerApi.getPokemonList(
+        pokemonList.length
+      )) as unknown as PokemonListResponse;
+      setPokemonList([...pokemonList, ...response.results]);
+    } catch (e) {
+      console.log(e);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   if (pokemonList.length === 0)
     return (
@@ -37,6 +53,9 @@ export default function TabOneScreen() {
         keyExtractor={(item) => item.name}
         numColumns={2}
         contentContainerStyle={styles.list}
+        onEndReachedThreshold={0.1}
+        onEndReached={() => addPokemon()}
+        ListFooterComponent={loading ? <Text>Loading ...</Text> : null}
       />
     </SafeAreaView>
   );

@@ -1,3 +1,3 @@
 export enum PokeApiEndpoint {
-  GET_ALL_POKEMONS = "https://pokeapi.co/api/v2/pokemon",
+  BASE_URL = "https://pokeapi.co/api/v2/pokemon",
 }
