@@ -1,11 +1,7 @@
-import {
-  StyleSheet,
-  View,
-  Text,
-  Image,
-  Button,
-  ScrollView,
-} from "react-native";
+import { FavPokemon } from "@/components/FavPokemon";
+import { ProfilePicture } from "@/components/ProfilePicture";
+import { StatsItem } from "@/components/StatsItem";
+import { StyleSheet, Text, View } from "react-native";
 
 export default function ChallengeTwoScreen() {
   const pokemon = [
@@ -16,37 +12,23 @@ export default function ChallengeTwoScreen() {
 
   return (
     <View style={styles.container}>
-      <Image
-        source={{ uri: "https://randomuser.me/api/portraits/men/37.jpg" }}
-        style={styles.profilePic}
+      <ProfilePicture
+        profilPicUrl="https://randomuser.me/api/portraits/men/37.jpg"
+        name="John Doe"
       />
-      <Text style={styles.name}>John Doe</Text>
       <Text style={styles.description}>
         Loves to code in React Native and explore new technologies.
       </Text>
-      <Button title="Edit Profile" onPress={() => alert("Profile Editing")} />
 
       <View style={styles.statsContainer}>
-        <View style={styles.statItem}>
-          <Text style={styles.statNumber}>150</Text>
-          <Text style={styles.statLabel}>Posts</Text>
-        </View>
-        <View style={styles.statItem}>
-          <Text style={styles.statNumber}>2800</Text>
-          <Text style={styles.statLabel}>Followers</Text>
-        </View>
-        <View style={styles.statItem}>
-          <Text style={styles.statNumber}>300</Text>
-          <Text style={styles.statLabel}>Following</Text>
-        </View>
+        <StatsItem statNumber={150} statLabel={"Posts"} />
+        <StatsItem statNumber={3000} statLabel="Followers" />
+        <StatsItem statNumber={300} statLabel="Followed" />
       </View>
 
       <Text style={styles.sectionHeader}>Favorite Pokemon:</Text>
-      {pokemon.map((book) => (
-        <View key={book.id} style={styles.bookItem}>
-          <Text style={styles.bookTitle}>{book.name}</Text>
-          <Text style={styles.bookAuthor}>{book.type}</Text>
-        </View>
+      {pokemon.map((pokemon) => (
+        <FavPokemon key={pokemon.id} name={pokemon.name} type={pokemon.type} />
       ))}
     </View>
   );
@@ -59,16 +41,6 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     padding: 20,
   },
-  profilePic: {
-    width: 120,
-    height: 120,
-    borderRadius: 60,
-  },
-  name: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginTop: 20,
-  },
   description: {
     textAlign: "center",
     marginTop: 10,
@@ -78,36 +50,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     marginTop: 20,
   },
-  statItem: {
-    flex: 1,
-    alignItems: "center",
-  },
-  statNumber: {
-    fontSize: 18,
-    fontWeight: "bold",
-  },
-  statLabel: {
-    fontSize: 14,
-    color: "#888",
-  },
   sectionHeader: {
     fontSize: 20,
     fontWeight: "bold",
     marginTop: 30,
     marginBottom: 10,
-  },
-  bookItem: {
-    backgroundColor: "#f0f0f0",
-    padding: 10,
-    borderRadius: 5,
-    marginBottom: 10,
-  },
-  bookTitle: {
-    fontSize: 16,
-    fontWeight: "bold",
-  },
-  bookAuthor: {
-    fontSize: 14,
-    color: "#666",
   },
 });
