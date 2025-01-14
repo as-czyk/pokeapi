@@ -6,10 +6,11 @@ import {
   ThemeProvider,
 } from "@react-navigation/native";
 import { useFonts } from "expo-font";
-import { Stack } from "expo-router";
+import { Slot, Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 import "react-native-reanimated";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -45,26 +46,12 @@ export default function RootLayout() {
     return null;
   }
 
-  return <RootLayoutNav />;
-}
-
-function RootLayoutNav() {
-  const colorScheme = useColorScheme();
-
   return (
-    <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+    <SafeAreaProvider>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen
-          name="detailview"
-          options={{
-            headerShown: true,
-            headerBackTitle: "All Pokemons",
-            headerTitle: "",
-          }}
-        />
-        <Stack.Screen name="modal" options={{ presentation: "modal" }} />
+        <Stack.Screen name="index" options={{ headerShown: false }} />
       </Stack>
-    </ThemeProvider>
+    </SafeAreaProvider>
   );
 }

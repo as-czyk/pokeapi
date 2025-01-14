@@ -22,22 +22,24 @@ export default function TabLayout() {
       }}
     >
       <Tabs.Screen
-        name="index"
+        name="list"
         options={{
-          title: "Pokemon List",
+          headerShown: false,
           tabBarIcon: ({ color }) => <TabBarIcon name="list" color={color} />,
+          title: "List",
         }}
       />
       <Tabs.Screen
-        name="team/index"
+        name="team"
         options={{
           title: "Team",
           headerTitle: "Team",
+          headerShown: false,
           tabBarIcon: ({ color }) => <TabBarIcon name="users" color={color} />,
         }}
       />
       <Tabs.Screen
-        name="camera/index"
+        name="camera"
         options={{
           title: "Kamera",
           headerTitle: "Kamera",
@@ -45,9 +47,9 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="chat/index"
+        name="chat"
         options={{
-          title: "Chat",
+          tabBarLabel: "Chat",
           headerTitle: "Chat",
           tabBarIcon: ({ color }) => (
             <TabBarIcon name="comments" color={color} />
@@ -55,7 +57,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="profile/index"
+        name="profile"
         options={{
           title: "Profile",
           headerTitle: "Profile",
