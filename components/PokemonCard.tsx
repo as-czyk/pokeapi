@@ -30,9 +30,9 @@ export const PokemonCard = (props: PokemonCardProps) => {
     <TouchableOpacity
       onPress={() =>
         router.push({
-          pathname: "/detailview",
+          pathname: "/list/[id]",
           params: {
-            data: JSON.stringify(pokemon),
+            id: JSON.stringify(pokemon),
           },
         })
       }
