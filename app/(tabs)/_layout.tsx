@@ -26,15 +26,13 @@ export default function TabLayout() {
         options={{
           headerShown: false,
           tabBarIcon: ({ color }) => <TabBarIcon name="list" color={color} />,
-          title: "List",
+          title: "Liste",
         }}
       />
       <Tabs.Screen
         name="team"
         options={{
           title: "Team",
-          headerTitle: "Team",
-          headerShown: false,
           tabBarIcon: ({ color }) => <TabBarIcon name="users" color={color} />,
         }}
       />
@@ -49,8 +47,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="chat"
         options={{
-          tabBarLabel: "Chat",
-          headerTitle: "Chat",
+          title: "Chat",
           tabBarIcon: ({ color }) => (
             <TabBarIcon name="comments" color={color} />
           ),
@@ -60,7 +57,6 @@ export default function TabLayout() {
         name="profile"
         options={{
           title: "Profile",
-          headerTitle: "Profile",
           tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />,
         }}
       />
