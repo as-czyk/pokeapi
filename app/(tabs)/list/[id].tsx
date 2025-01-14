@@ -1,14 +1,7 @@
 import { Location, Type } from "@/types";
 import { useLocalSearchParams } from "expo-router";
 import React from "react";
-import {
-  Image,
-  ScrollView,
-  SectionList,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 
 const TypeTag = ({ type }: { type: Type }) => (
   <View
@@ -19,8 +12,8 @@ const TypeTag = ({ type }: { type: Type }) => (
 );
 
 const PokemonDetailsView = () => {
-  const { data } = useLocalSearchParams();
-  const pokemon = JSON.parse(data as unknown as string);
+  const { id } = useLocalSearchParams();
+  const pokemon = JSON.parse(id as unknown as string);
 
   return (
     <ScrollView style={styles.container}>
