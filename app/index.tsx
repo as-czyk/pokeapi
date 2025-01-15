@@ -8,7 +8,7 @@ import "../global.css";
 export default function App() {
   const router = useRouter();
   return (
-    <View className="flex-1 bg-yellow-400">
+    <View className="flex-1 bg-yellow-400 bg">
       <View className="flex-1 items-center justify-center">
         <Image
           source={{
