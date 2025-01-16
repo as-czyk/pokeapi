@@ -3,16 +3,17 @@ import { addDoc, collection, deleteDoc, doc, getDoc } from "firebase/firestore";
 export namespace Team {
   export const DB_COLLECTION = "team";
 
-  function createRecord(pokemonId: string): any {
+  function createRecord(pokemonId: string, nickname: string): any {
     return {
       pokemonId,
+      nickname,
       createdAt: new Date().toISOString(),
     };
   }
 
   export const API = {
-    addPokemonToTeam: async (pokemonId: string) => {
-      const pokemonRecord = createRecord(pokemonId);
+    addPokemonToTeam: async (pokemonId: string, nickname: string) => {
+      const pokemonRecord = createRecord(pokemonId, nickname);
 
       try {
         const user = auth.currentUser;
