@@ -1,3 +1,4 @@
+import { AuthProvider } from "@/provider/AuthProvider";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
@@ -42,14 +43,16 @@ export default function RootLayout() {
 
   return (
     <SafeAreaProvider>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen
-          name="(auth)/login"
-          options={{ headerBackTitle: "Back", title: "Login" }}
-        />
-        <Stack.Screen name="index" options={{ headerShown: false }} />
-      </Stack>
+      <AuthProvider>
+        <Stack>
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen
+            name="(auth)/login"
+            options={{ headerBackTitle: "Back", title: "Login" }}
+          />
+          <Stack.Screen name="index" options={{ headerShown: false }} />
+        </Stack>
+      </AuthProvider>
     </SafeAreaProvider>
   );
 }
