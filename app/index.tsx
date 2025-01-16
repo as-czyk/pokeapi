@@ -3,6 +3,7 @@ import React from "react";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import { useRouter } from "expo-router";
+
 import "../global.css";
 
 export default function App() {
