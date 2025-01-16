@@ -14,6 +14,8 @@ export default function PokemonLoginScreen() {
       const response = await CloudApi.login(email, password);
 
       if (response.user) {
+        const entries = await CloudApi.getPokeDexEntries(response.user.uid);
+        console.log(entries);
         router.push("/list");
       }
     } catch (e) {

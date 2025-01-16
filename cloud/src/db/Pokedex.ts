@@ -30,7 +30,7 @@ export namespace Pokedex {
       }
     },
 
-    getPokeDexEntries: async () => {
+    getPokeDexEntries: async (userId: string) => {
       try {
         const user = auth.currentUser;
         const userId = user?.uid;
@@ -41,7 +41,6 @@ export namespace Pokedex {
         );
 
         const querySnapshot = await getDocs(userPokedexCollection);
-
         const pokedexEntries = querySnapshot.docs.map((doc) => {
           return {
             id: doc.id,
