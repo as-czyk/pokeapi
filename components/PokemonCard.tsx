@@ -3,6 +3,7 @@ import { PokemonType } from "@/types";
 import { useEffect, useState } from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { router } from "expo-router";
+import { BlurView } from "expo-blur";
 
 interface PokemonCardProps {
   name: string;
@@ -10,6 +11,7 @@ interface PokemonCardProps {
 
 export const PokemonCard = (props: PokemonCardProps) => {
   const [pokemon, setPokemon] = useState<PokemonType | null>(null);
+  const isBlurred = true;
 
   const { name } = props;
 
@@ -42,6 +44,7 @@ export const PokemonCard = (props: PokemonCardProps) => {
         <Text style={styles.name}>{pokemon.name}</Text>
         <Text style={styles.details}>Height: {pokemon.height / 10} m</Text>
         <Text style={styles.details}>Weight: {pokemon.weight / 10} kg</Text>
+        {isBlurred && <BlurView intensity={20} style={styles.blurOverlay} />}
       </View>
     </TouchableOpacity>
   );
@@ -72,5 +75,13 @@ const styles = StyleSheet.create({
   details: {
     fontSize: 16,
     color: "#666",
+  },
+  blurOverlay: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    zIndex: 1,
   },
 });
